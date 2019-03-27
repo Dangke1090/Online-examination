@@ -1,0 +1,13 @@
+@charset "UTF-8";
+#testmessage input{
+	padding: 5px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+#testmessage{
+	padding:50px 400px;
+	margin-bottom: 140px;
+	font-size: 17px;
+	width:550px;
+	float: left;
+}

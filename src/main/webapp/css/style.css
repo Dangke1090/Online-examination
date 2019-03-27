@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* CSS Document */
+/* 标题栏 */
+#top {
+	width: 100%;
+	display: block;
+	min-height: 120px;
+	background: #0f0f46;
+}
+
+#logo {
+	float: left;
+	color: white;
+}
+
+h2 {
+	margin-top: 30px;
+}
+
+#logotime {
+	float: right;
+	margin-top: 75px;
+	color: white;
+	font-size: 15px;
+}
+/*  左半部分 */
+#leftsidebar_box {
+	width: 180px;
+	cursor: pointer;
+	background: #fbeedb;
+	height: 1500px;
+	display: block;
+	position:absolute;
+}
+
+.first_dd, .second_dd, .third_dd {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 100px;
+}
+
+
+.first_dd:hover, .second_dd:hover, .third_dd:hover {
+	background-color: #1E90FF;
+}
+
+.person:hover .first_dd, .study:hover .second_dd, .paper:hover .third_dd
+	{
+	display: block;
+}
+
+#leftsidebar_box dt {
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	color: #1E90FF;
+	font-size: 30px;
+	font-weight: bold;
+	font-family: "SimHei";
+	position: relative;
+	line-height: 72px;
+	cursor: pointer;
+	margin-bottom: 3px;
+	background-color: blue;
+	text-align: center;
+}
+
+#leftsidebar_box dl {
+	margin: 0px;
+}
+a{
+		text-decoration: none;
+	color: black;
+}
+
+
+

@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+#paper2_title{
+	padding:100px 300px;
+	width:1300px;
+}
+#paper{
+	font-weight: bold;
+	text-align: center;
+	width: 1164px;
+	font-size: 0;
+}
+#paper2{
+	width: 1181px;
+	font-size: 0;
+	height: 550px;
+	overflow: auto;
+}
+#paper2_no{
+	display:inline-block;
+	width:50px;
+	border: 1px solid #ffffff; 
+	padding: 10px;
+	font-size:17px;
+	background:#f2f2f2 ;
+}
+#paper2_name{
+	display:inline-block;
+	width:350px;
+	border: 1px solid #ffffff; 
+	padding: 10px;
+	font-size:17px;
+	background:#f2f2f2 ;
+}
+#professional{
+	display:inline-block;
+	width:190px;
+	border: 1px solid #ffffff; 
+	padding: 10px;
+	font-size:17px;
+	background:#f2f2f2 ;
+}
+#paper_name{
+	font-size:17px;
+	display:inline-block;
+	width:90px;
+	border: 1px solid #ffffff; 
+	padding: 10px;
+	background:#f2f2f2 ;
+}
+#time{
+	font-size:17px;
+	display:inline-block;
+	width:90px;
+	border: 1px solid #ffffff; 
+	padding: 10px;
+	background:#f2f2f2 ;
+}
+#release{
+	font-size:17px;
+	display:inline-block;
+	width:90px;
+	border: 1px solid #ffffff; 
+	padding: 10px;
+	background:#f2f2f2 ;
+}
+#paperhandle{
+	font-size:17px;
+	display:inline-block;
+	width:150px;
+	border: 1px solid #ffffff; 
+	padding: 10px;
+	background:#f2f2f2 ;
+}

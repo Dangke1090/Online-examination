@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.mapper.UserMapper">
+
+	<!-- 插入用户数据 -->
+	<!-- Integer insert(User user) -->
+	<insert id="insert" parameterType="cn.com.Entity.User"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO user (
+		name,
+		sex,
+		username,
+		password,
+		birthday,
+		birthyear,
+		birthmonth,
+		address,
+		idcard,
+		education,
+		joinyear,
+		joinmonth,
+		joinday,
+		partyear,
+		partmonth,
+		partday,
+		selprofessional,
+		seljob,
+		idnum,
+		selbattalion,
+		selcommander,
+		selplatoon,
+		selstate,
+		seltype,
+		studybackground,
+		rewardpunishment,
+		office,
+		sort,
+		image
+		) VALUES (
+		#{name},
+		#{sex},
+		#{username},
+		#{password},
+		#{birthday},
+		#{birthyear},
+		#{birthmonth},
+		#{address},
+		#{idcard},
+		#{education},
+		#{joinyear},
+		#{joinmonth},
+		#{joinday},
+		#{partyear},
+		#{partmonth},
+		#{partday},
+		#{selprofessional},
+		#{seljob},
+		#{idnum},
+		#{selbattalion},
+		#{selcommander},
+		#{selplatoon},
+		#{selstate},
+		#{seltype},
+		#{studybackground},
+		#{rewardpunishment},
+		#{office},
+		#{sort},
+		#{image}
+		)
+	</insert>
+	<select id="byname" resultType="cn.com.Entity.User">
+		SELECT * from user  ORDER BY sort ASC
+	</select>
+	<select id="getImage" resultType="cn.com.Entity.User">
+	select image from user where id=#{id}
+	</select>
+	<select id="getUserByUsername" resultType="cn.com.Entity.User">
+		SELECT * from user where username=#{username}
+	</select>
+	<delete id="delete">
+		DELETE FROM 
+			user
+		WHERE 
+			id=#{id}
+	</delete>
+	<select id="getLastSort"  resultType="cn.com.Entity.User">
+	 SELECT * from user
+        <where>
+            <if test="sort!=null">
+                (sort <![CDATA[ < ]]>  #{sort} OR sort=(SELECT MIN(sort) FROM user ) )
+            </if>
+        </where>
+        ORDER BY sort DESC limit 1
+    </select>
+ <select id="getUserById"  resultType="cn.com.Entity.User">
+  select * from user
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+        </where>
+ </select>
+  <update id="update" parameterType="cn.com.Entity.User" >
+        update user
+        <set>
+            <if test="sort!=null">
+                sort = #{sort}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+    <select id="getMaxSort" resultType="java.lang.Integer">
+        select MAX(sort) from user
+    </select>
+    <select id="getProfessinol" resultType="cn.com.Entity.User">
+    	select * from user 
+    	<trim prefix="where" prefixOverrides="and | or">
+				<if test="selprofessional!=null">
+    	selprofessional=#{selprofessional}
+    	</if>
+		</trim>
+    </select>
+    <select id="getJob" resultType="cn.com.Entity.User">
+    	select * from user 
+    	<trim prefix="where" prefixOverrides="and | or">
+				<if test="seljob!=null">
+    	seljob=#{seljob}
+    	</if>
+		</trim>
+    </select>
+    	<update id="changeInfo">
+		UPDATE 
+			user 
+		<set>
+		<if test="name != null">
+			name=#{name},
+			</if>
+			<if test="sex != null">
+			sex=#{sex},
+			</if>
+			<if test="birthday!=null">
+			birthday=#{birthday},
+			birthmonth=#{birthmonth},
+			birthyear=#{birthyear},
+			</if>
+					<if test="address!=null">
+			address=#{address},
+			</if>
+						<if test="education!=null">
+			education=#{education},
+			</if>
+						<if test="idcard!=null">
+			idcard=#{idcard},
+			</if>
+			<if test="partday!=null">
+			partday=#{partday},
+			partmonth=#{partmonth},
+			partyear=#{partyear},
+			</if>
+			<if test="joinday!=null">
+						joinday=#{joinday},
+			joinmonth=#{joinmonth},
+			joinyear=#{joinyear}
+			</if>
+		WHERE 
+			id=#{id}
+		</set> 
+			
+	</update>
+    
+</mapper>
+
+
+
+
+
+
+
+

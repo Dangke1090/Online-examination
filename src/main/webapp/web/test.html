@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>在线考核系统</title>
+<link href="../css/index.css" rel='stylesheet' type='text/css' />
+<link href="../css/test.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+	  <div class="rs_header">
+          <span class="rs_header_active" >
+          <a href="test1.html" onclick="change_bg(this)" >资料列表</a></span>
+       
+         <span class="rs_header_active" ><a href="test.html"
+         onclick="change_bg(this)" class="current"
+         >资料录入</a></span> 
+         </div>
+       <div id="container" class="clearfix">
+         <div id="rightsidebar_box">
+         <div id="message">
+         <form action="" enctype="multipart/form-data"   method="post">
+		<div id="testmessage">
+		         	类&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;<input name="type" type="text">
+         	<br>上传文件&nbsp;<input type="file" name="adress">
+         	<br>文&nbsp;件&nbsp;名&nbsp;<input type="text" name="filename">
+         	<input type="submit"  value="提交">
+		</div>
+		</form>
+        	</div>
+	
+</div>
+</div>
+<script type="text/javascript">
+function changeColor(id,flag){
+	if(flag=="over"){
+		document.getElementById(id).style.backgroundColor="#0000FF";
+	}else if(flag=="out"){
+		document.getElementById(id).style.backgroundColor="#6495ED";
+	}
+}
+
+</script>
+<script type="text/javascript">
+function change_bg(obj)
+{
+    var a=document.getElementById("Menu").getElementsByTagName("a");
+    for(var i=0;i<a.length;i++)
+    {
+        a[i].className="";
+    }
+    obj.className="current";
+}
+/* function insert(obj){
+	var adress=document.getElementById("file").value;
+	var name=document.getElementById("name").value;
+	var type=document.getElementById("type").value;
+	
+} */
+</script>
+</body>
+</html>

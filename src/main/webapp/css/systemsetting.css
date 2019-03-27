@@ -1,0 +1,67 @@
+@charset "UTF-8";
+#systemmessage{
+	padding:50px 0 0 250px;
+	margin-bottom: 140px;
+	font-size: 17px;
+	width:1400px;	
+}
+ #systemmessage input{
+	padding: 5px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+#selDepartment{
+	width: 100px;
+	padding: 5px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+ #selprofessional,#seljob,#selstate,#seltype{
+	padding: 5px;
+	margin-bottom: 15px;
+	text-align: center;
+	width: 180px;
+}
+#selcommander,#selplatoon,#selbattalion{
+	width: 100px;
+	padding: 5px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+#tablespan{
+	width: 606px;
+	font-size: 0;
+	font-weight: bold;
+	text-align: center;
+}
+#question{
+	width: 617px;
+	height: 1000px;
+}
+#onespan1,#twospan2,#threespan3{
+	width: 200px;
+	font-size:17px;
+	border: 1px solid #ffffff;
+	background:#f2f2f2 ;
+}
+#rightmessage{
+	width: 500px;
+	float: left;
+}
+#systemmessage_bumen{
+	float: right;
+	width: 900px;
+	height: 1000px;
+}
+th,td{
+    width: 286px;
+    height:30px;
+    display: inline-block;
+    }
+#systemmessage_Professional,#systemmessage_Job,#systemmessage_State,#systemmessage_Type{
+	width: 600px;
+	float: left;
+}
+#systemmessage_Department{
+	
+}

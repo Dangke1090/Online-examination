@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>在线考核系统</title>
+<link href="../css/index.css" rel='stylesheet' type='text/css' />
+<link href="../css/paper2.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+	<div class="rs_header">
+				<span class="rs_header_active"> <a href="paper1.html" onclick="change_bg(this)" >试题列表</a></span>
+				<span class="rs_header_active"> <a href="paper.html" onclick="change_bg(this)" >试题录入</a></span>
+				<span class="rs_header_active" > <a href="paper2.html" onclick="change_bg(this)" class="current">试卷列表</a></span>
+				<span class="rs_header_active" > <a href="paper3.html" onclick="change_bg(this)">试卷录入</a></span>
+			</div>
+	<div id="container" class="clearfix">	
+		<div id="rightsidebar_box">
+			<div id="paper2_title">
+				<div id="paper">
+					<span id="paper2_no">序号</span> 
+					<span id="paper2_name">试卷名称</span>
+					<span id="professional"><select style="font-size: 15px; font-weight: bold;">
+					<option>适用专业</option>
+					<option>计算机</option>
+					<option>美容美发</option>
+					<option>M</option>
+					<option>M</option>
+					</select></span>
+					<span id="paper_name">发布人</span>
+					 <span id="time">发布时间</span>
+					 <span id="release"><select style="font-size: 15px; font-weight: bold; " >
+					 <option>发布状态</option>
+					 <option>已发布</option>
+					 <option>未发布</option>
+					 </select></span>
+					 <span id="paperhandle">操作</span>
+				</div>
+				<div id="paper2">
+					<span id="paper2_no">1</span>
+					 <span id="paper2_name">java语言</span>
+					<span id="professional">机械</span>
+					<span id="paper_name">张三</span>
+					<span id="time">2019-3-1</span>
+					 <span id="release">已发布</span>
+					 <span id="paperhandle">
+						<span id="aco_change">修改</span>| <span id="aco_delete">删除</span>
+					</span>
+						<script type="text/javascript">
+		for(var i=2;i<100;i++){
+			document.write(
+					'<span id="paper2_no">'+i+'</span>'+
+					 '<span id="paper2_name">java语言</span>'+
+					'<span id="professional">机械</span>'+
+					'<span id="paper_name">张三</span>'+
+					'<span id="time">2019-3-1</span>'+
+					 '<span id="release">已发布</span>'+
+					 '<span id="paperhandle">'+
+						'<span id="aco_change">修改</span>| <span id="aco_delete">删除</span>'+
+					'</span>');
+		}
+	
+	</script>
+				</div>
+		
+				</div>
+		</div>
+	</div>
+	
+</html>

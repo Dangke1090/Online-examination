@@ -1,0 +1,92 @@
+@charset "UTF-8";
+#message{
+	width: 1700px;
+}
+#fistmessage{
+	padding: 15px;
+	margin-bottom: 20px;
+	font-size: 17px;
+	width:550px;
+	float: left;
+	
+}
+#fistmessage input,select{
+	padding: 5px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+#pho{
+	width: 136px;
+	height: 150px;
+	border: 1px solid black;
+	float: right;
+	margin-right: 20px;
+}
+p{
+	font-size: 20px;
+}
+#zerodiv{
+	float: right;
+	
+}
+#firstdiv{
+	width:1070px;
+	height:250px;
+	border: 1px solid black;
+	
+}
+#seconddiv{
+	width:1070px;
+	height:150px;
+	overflow: auto;
+}
+#seconddiv span{
+	margin-left: 40px;
+	}
+
+#submitbt{
+	float: left;
+}
+#submitbt input{
+	padding: 10px;
+	margin-left: 150px;
+
+}
+#seljob,#selstate,#selprofessional{
+	width: 183px;
+}
+#selDepartment{
+	width: 150px;
+}
+#seconddiv input{
+	size: 120px;
+}
+#imgPreview {
+ width: 150px;
+ height: 160px;
+ border: 1px solid black;
+ text-align: center;
+ float: right;
+ 
+}
+#prompt3 {
+ width: 150px;
+ height: 160px;
+ text-align: center;
+ position: relative;
+}
+#imgSpan {
+ position: absolute;
+ top: 60px;
+ left: 40px;
+}
+.filepath {
+ width: 100%;
+ height: 100%;
+ opacity: 0;
+}
+#img3 {
+ height: 100%;
+ width: 100%;
+ display: none;
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.mapper.TypeMapper">
+
+	<!-- 插入用户数据 -->
+	<!-- Integer insert(Job job) -->
+	<insert id="insert"
+		parameterType="cn.com.Entity.Type"
+		useGeneratedKeys="true"
+		keyProperty="id">
+		INSERT INTO type (
+			typename
+		) VALUES (
+			#{typename}
+		)
+	</insert>
+	
+	<select id="getDataes" 
+	resultType="cn.com.Entity.Type">
+	SELECT * FROM type
+	</select>
+	<delete id="delete">
+		DELETE FROM 
+			type
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+

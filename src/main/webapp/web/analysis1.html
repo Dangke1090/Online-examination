@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>在线考核系统</title>
+<link href="../css/index.css" rel='stylesheet' type='text/css' />
+<link href="../css/analysis.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+	<div class="rs_header">
+		<span class="rs_header_active"> <a href="analysis.html"
+			onclick="change_bg(this)">在线学习</a></span> <span class="rs_header_active">
+			<a href="analysis1.html" onclick="change_bg(this)" class="current">模拟考试</a>
+		</span> <span class="rs_header_active"> <a href="analysis2.html"
+			onclick="change_bg(this)">在线考试</a></span>
+	</div>
+	<div id="container">
+		<div id="rightsidebar_box">
+			<div id="top_box">
+				<div id="">
+					<p>
+						专&nbsp;&nbsp;&nbsp;&nbsp;业&nbsp;<select>
+							<option>计算机</option>
+							<option>美容美发</option>
+							<option>挖掘机</option>
+							<option>电工电子</option>
+						</select>
+					<p>
+						统计时间 <input size="15">———<input size="15"> <input
+							type="submit" value="确定">
+				</div>
+				<div id="tableanal5">
+					<span id="anal1_check">选项</span> <span id="anal1_no">序号</span> <span
+						id="anal1_battalion">营</span> <span id="anal1_link">连</span> <span
+						id="anal1_raft">排</span> <span id="anal1_name">姓名</span> <span
+						id="anal1_num">题数</span> <span id="anal1_true">正确率</span> <span
+						id="anal1_analysis"></span>
+				</div>
+				<div id="tableanal6">
+					<script type="text/javascript">
+						for (var i = 1; i < 100; i++) {
+							document
+									.write('<span id="anal1_check"><input type="checkbox"></span>'
+											+ '<span id="anal1_no">'
+											+ i
+											+ '</span>'
+											+ '<span id="anal1_battalion">2营</span>'
+											+ '<span id="anal1_link">3连</span>'
+											+ '<span id="anal1_raft">4排</span>'
+											+ '<span id="anal1_name">王五</span>'
+											+ '<span id="anal1_num">题数</span>'
+											+ '<span id="anal1_true">正确率</span>');
+						}
+					</script>
+				</div>
+			</div>
+			<div id="bom_box">
+				<span id="an_name">赵六</span>
+				<div id="tableanal7">
+					<span id="anal2_no">序号</span> <span id="anal2_time">时间</span> <span
+						id="anal2_name">题目名称</span> <span id="anal2_type">题型</span> <span
+						id="anal2_result">结果</span>
+				</div>
+				<div id="tableanal8">
+
+					<script type="text/javascript">
+						for (var i = 1; i < 100; i++) {
+							document.write('<span id="anal2_no">' + i
+									+ '</span>'
+									+ '<span id="anal2_time">时间</span>'
+									+ '<span id="anal2_name">题目名称</span>'
+									+ '<span id="anal2_type">题型</span>'
+									+ '<span id="anal2_result">结果</span>');
+						}
+					</script>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		//定义一个tick函数，以获取系统的时间
+		function tick() {
+			var year, month, day, hours, minutes, seconds, ap;
+			var intYear, intMonth, intDay, intHours, intMinutes, intSeconds;
+			var today;
+			today = new Date();
+			intYear = today.getYear();
+			intMonth = today.getMonth() + 1;
+			intDay = today.getDate();
+			intHours = today.getHours();
+			intMinutes = today.getMinutes();
+			intSeconds = today.getSeconds();
+			//获取系统时间的小时数
+			if (intHours == 0) {
+				hours = intHours + ":";
+				ap = "凌晨";
+			} else if (intHours < 12) {
+				hours = intHours + ":";
+				ap = "早晨";
+			} else if (intHours == 12) {
+				hours = intHours + ":";
+				ap = "中午";
+			} else {
+				intHours = intHours - 12;
+				hours = intHours + ":";
+				ap = "下午";
+			}
+			//获取系统时间的分数
+			if (intMinutes < 10) {
+				minutes = "0" + intMinutes + ":";
+			} else
+				minutes = intMinutes + ":";
+			//获取系统时间的秒数
+			if (intSeconds < 10)
+				seconds = "0" + intSeconds + " ";
+			else
+				seconds = intSeconds + " ";
+			timeString = ap + hours + minutes + seconds;
+			Clock.innerHTML = timeString;
+			//每隔0.1秒钟执行一次tick函数
+			window.setTimeout("tick()", 100);
+		}
+		window.onload = tick;
+	</script>
+	<script type="text/javascript">
+		function change_bg(obj) {
+			var a = document.getElementById("Menu").getElementsByTagName("a");
+			for (var i = 0; i < a.length; i++) {
+				a[i].className = "";
+			}
+			obj.className = "current";
+		}
+	</script>
+</body>
+</html>

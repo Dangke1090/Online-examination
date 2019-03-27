@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>在线考核系统</title>
+<link href="../css/paper1.css" rel='stylesheet' type='text/css' />
+<link href="../css/index.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+	<div class="rs_header">
+				<span class="rs_header_active"> <a href="paper1.html" onclick="change_bg(this)" class="current">试题列表</a></span>
+				<span class="rs_header_active"> <a href="paper.html" onclick="change_bg(this)" >试题录入</a></span>
+				<span class="rs_header_active" > <a href="paper2.html" onclick="change_bg(this)">试卷列表</a></span>
+				<span class="rs_header_active" > <a href="paper3.html" onclick="change_bg(this)">试卷录入</a></span>
+			</div>
+	<div id="container" class="clearfix">	
+		<div id="rightsidebar_box">
+			<div id="paper1message">
+			<div id="sele">
+			<p>选择题型<select id="sel1">
+				<option value="选择题">选择题</option>
+				<option value="判断题">判断题</option>
+				<option value="多选题">多选题</option>
+				<option value="实操题">实操题</option>
+			</select> 适用专业 <select id="sel2">
+				<option value="计算机专业">计算机专业</option>
+				<option value="汽修专业">汽修专业</option>
+				<option value="美容美发">美容美发</option>
+				<option value="炮兵专业">炮兵专业</option>
+			</select>
+			</div>
+			<div id="paper_title">
+				<div id="paper">
+					<span id="paper_no">序号</span> 
+					<span id="test_name">题名</span>
+					<span id="paper_name">出题人</span>
+					 <span id="paper_handle">操作</span>
+				</div>
+				<div id="paper2">
+					<span id="paper_no">1</span> <span id="test_name">java语言</span>
+					<span id="paper_name">洋洋</span> 
+					<span id="paper_handle">
+						<span id="aco_change">修改</span>| <span id="aco_delete">删除</span>
+					</span>
+						<script type="text/javascript">
+		for(var i=2;i<100;i++){
+			document.write(
+					'<span id="paper_no">'+i+'</span> <span id="test_name">java语言</span>'+
+					'<span id="paper_name">洋洋</span> '+
+					'<span id="paper_handle">'+
+					'<span id="aco_change">修改</span>| <span id="aco_delete">删除</span>'+
+					'</span>');
+		}
+	
+	</script>
+					
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+function changeColor(id,flag){
+	if(flag=="over"){
+		document.getElementById(id).style.backgroundColor="#0000FF";
+	}else if(flag=="out"){
+		document.getElementById(id).style.backgroundColor="#6495ED";
+	}
+}
+
+		
+</script>
+	<script src="../js/jquery-3.1.1.min.js"></script>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.mapper.SituationMapper">
+		<insert id="insert" parameterType="cn.com.Entity.Situation"
+		useGeneratedKeys="true"
+		keyProperty="id">
+	INSERT INTO situation (
+			situationname
+		) VALUES (
+			#{situationname}
+		)
+	</insert>
+	
+	<select id="getDataes" 
+	resultType="cn.com.Entity.Situation">
+	SELECT * FROM situation
+	</select>
+	<delete id="delete">
+		DELETE FROM 
+			situation
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+

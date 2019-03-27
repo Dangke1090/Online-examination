@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/index.css" rel='stylesheet' type='text/css' />
+</head>
+<div id="leftsidebar_box" class="lf">
+<dl class="person" id="person" style="display: none;">
+			<dt>
+				<a href="index.html" target="rightFrame" rel="external nofollow" rel="external nofollow" rel="external nofollow" name="myset">人员管理</a>
+			</dt>
+		</dl>
+		<dl class="study"  id="study" style="display: none;">
+			<dt>
+				<a href="test1.html" target="rightFrame" target="rightFrame"  >学习资料</a>
+			</dt>
+		</dl>
+		<dl class="paper" id="paper" style="display: none;">
+			<dt>
+				<a href="paper1.html" target="rightFrame" >试卷题库</a>
+			</dt>
+		</dl>
+		<dl class="analyse" id="analyse" style="display: none;">
+			<dt>
+				<a href="analysis.html" target="rightFrame" >分析统计</a>
+			</dt>
+		</dl>
+		<dl class="setup" id="setup" style="display: none;">
+			<dt>
+				<a href="systemsetting.html" target="rightFrame" >系统设置</a>
+			</dt>
+		</dl>
+</div>
+	<script src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+		$.ajax({
+			"url": "../user/handle_login.do",
+			"type": "get",
+			"dataType": "json",
+			"success": function(json) {
+				if (json.state == 200) {
+					var user = json.data;
+					var all= new Array();
+					all=user.seltype.split(",");
+					
+					for( var i=0;i<all.length;i++){
+						
+						var num=parseInt(all[i]);
+						switch(num){
+						case(1):
+							
+							$("#person").css("display", "");
+							break;
+						case(2):
+							
+							$("#study").css("display", "");
+							break;
+						case(3):
+							$("#paper").css("display", "");
+							break;
+						case(4):
+							$("#analyse").css("display","");
+							break;
+						case(5):
+							$("#setup").css("display", "");
+							break;
+						}
+					}
+					}
+				} 
+		});
+
+</script>
+
+<script>
+  $('#leftsidebar_box dt a').click(function () {
+    var f = this;
+    $('#leftsidebar_box dt a').each(function () {
+      this.className = this == f ? 'active' : 'none'
+    });
+  });
+</script>
+
+</body>
+</html>

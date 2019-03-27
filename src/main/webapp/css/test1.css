@@ -1,0 +1,58 @@
+@charset "UTF-8";
+#test1message{
+	padding:50px 400px 50px 200px;
+	font-size: 17px;
+	width:1300px;
+}
+#test1message input,select{
+	padding: 5px;
+}
+#test1message {
+text-align: center;
+width: 968px;
+}
+#message{
+	width: 1300px;
+}
+#test_title{
+	width: 1050px;
+	padding: 0 200px;
+}
+#test1,#test2{
+	width: 1116px;
+	font-size: 0;
+}
+#test1{
+	font-weight: bold;
+	text-align: center;
+}
+#test2{
+	width: 1133px;
+	height: 500px;
+	overflow: auto;
+}
+#test_no{
+	font-size:17px;
+	display:inline-block;
+	width:50px;
+	border: 1px solid #ffffff; 
+	padding: 10px;
+	background:#f2f2f2 ;
+}
+#paper_name{
+	font-size:17px;
+	display:inline-block;
+	width:750px;
+	border: 1px solid #ffffff; 
+	padding: 10px;
+	background:#f2f2f2 ;
+}
+#paper_handle{
+	font-size:17px;
+	display:inline-block;
+	width:250px;
+	border: 1px solid #ffffff; 
+	padding: 10px;
+	background:#f2f2f2 ;
+	text-align: center;
+}

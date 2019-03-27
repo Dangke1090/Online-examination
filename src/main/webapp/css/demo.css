@@ -1,0 +1,14 @@
+@charset "UTF-8";
+		body{
+		   overflow:hidden;
+		}
+	#container{
+			height:100%;
+			width:100%;
+			overflow:auto;
+			overflow-x:hidden;
+			position:absolute;
+			border:1px solid red;
+			left:200px;
+			top:100px;
+		}

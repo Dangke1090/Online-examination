@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>在线考核系统</title>
+<link href="../css/index.css" rel='stylesheet' type='text/css' />
+<link href="../css/paper3.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+	<div class="rs_header">
+		<span class="rs_header_active"> <a href="paper1.html"
+			onclick="change_bg(this)">试题列表</a></span> <span class="rs_header_active">
+			<a href="paper.html" onclick="change_bg(this)">试题录入</a>
+		</span> <span class="rs_header_active"> <a href="paper2.html"
+			onclick="change_bg(this)">试卷列表</a></span> <span class="rs_header_active">
+			<a href="paper3.html" onclick="change_bg(this)" class="current">试卷录入</a>
+		</span>
+	</div>
+	<div id="container" class="clearfix">
+		<div id="rightsidebar_box">
+		<div id="paper3cont">
+		<div id="paper3message">
+					组卷方式&nbsp;<select onChange="cll(this.value)"  style="width: 183px">
+				<option value="0" onClick="show();">手动</option>
+				<option value="1" onClick="show();">自动</option>
+			</select>
+			<div id="div1" onchange="hidden();">
+				<p>
+					试卷名称&nbsp;<input type="text"> 
+					<p>适用专业&nbsp;<select style="width: 183px">
+						<option>--请选择--</option>
+						<option value="0" onClick="show();">计算机</option>
+						<option value="1" onClick="show();">美容美发</option>
+						<option value="2" onClick="show();">挖掘机</option>
+						<option value="3" onClick="show();">电工电子</option>
+					</select>
+				<p>
+					考试时长&nbsp;<input type="text">分钟
+				<div id="onediv">
+					<p>
+						选择题型&nbsp;<select >
+							<option>--请选择--</option>
+							<option value="" >选择题</option>
+							<option value="" >判断题</option>
+							<option value="" >多选题</option>
+							<option value="" >实操题</option>
+						</select> 每题<input size="1">分，共<input size="1">题
+						<input type="button" value="添加">
+					<div>
+						<div id="paper">
+						<span id="xuanxiang">选项</span>
+							<span id="paper_no">序号</span> <span id="test_name">文件名</span> <span id="paper_name">姓名</span> <span
+								id="time">时间</span> <span id="paper_handle">操作</span>
+						</div>
+						<div id="paper2">				
+							<script type="text/javascript">
+							for (var i=1;i<100;i++){
+								document.write(
+										'<span id="xuanxiang"><input type="checkbox"></span>'+
+							'<span id="paper_no">'+i+'</span>'+
+							'<span id="test_name">java语言</span>'+
+							'<span id="paper_name">洋洋</span>'+
+							'<span id="time">2019-3-1</span>'+
+							'<span id="paper_handle"><span id="aco_delete">删除</span></span>');
+							}
+							</script>
+						</div>
+		
+					</div>
+				</div>
+				<div>
+						<p>
+							总分<input size="1">分，合格<input size="1">分
+						</p>
+						<input type="submit" value="提交">
+					</div>
+			</div>
+			<div id="div2" style="display: none" onchange="hidden();">
+				<p>
+					试卷名称&nbsp;<input type="text"> 
+					<p>适用专业&nbsp;<select>
+						<option>--请选择--</option>
+						<option value="0" onClick="show();">计算机</option>
+						<option value="1" onClick="show();">美容美发</option>
+						<option value="2" onClick="show();">挖掘机</option>
+						<option value="3" onClick="show();">电工电子</option>
+					</select>
+				<p>
+					考试时长&nbsp;<input type="text">分钟
+				<div id="div2message">
+					<span id="onesp"><input type="checkbox"></span>
+					 <span id="twosp">单选题</span> 
+					 <span id="threesp">每题<input size="1">分
+					</span>
+					 <span id="foursp">共<input size="1">题
+					</span>
+				</div>
+				<div id="div2message">
+					<span id="onesp"><input type="checkbox"></span>
+					 <span id="twosp">多选题</span> <span id="threesp">每题<input
+						size="1">分
+					</span>
+					 <span id="foursp">共<input size="1">题
+					</span>
+				</div>
+				<div id="div2message">
+					<span id="onesp"><input type="checkbox"></span> 
+					<span id="twosp">判断题</span>
+					 <span id="threesp">每题<input size="1">分
+					</span > 
+					<span id="foursp">共<input size="1">题
+					</span>
+			</div>
+			<div>
+						<p>
+							总分<input size="1">分，合格<input size="1">分
+						</p>
+						<input type="submit" value="提交">
+					</div>
+		</div>
+		</div>
+		<div id="yulan">
+			<p>预览</p>
+						<div id="paper3">
+							<span id="paper1_no">序号</span>
+							<span id="paper1_type">题型</span>
+							 <span id="test1_name">题名</span>
+							 <span id="paper1_name">出题人</span> 
+						</div>
+						<div id="paper4">		
+							<script type="text/javascript">
+							for(var i=1;i<100;i++){
+								document.write(
+										'<span id="paper1_no">'+i+'</span>'+
+										'<span id="paper1_type">判断</span>'+
+										'<span id="test1_name">java语言</span>'+  
+										 '<span id="paper1_name">张三</span>');
+							}
+							</script>					
+						</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		<script>
+			function cll(id) {
+				if (id == 0) {
+					eval("div1.style.display=\"\";");
+					eval("div2.style.display=\"none\";");
+				} else {
+					eval("div1.style.display=\"none\";");
+					eval("div2.style.display=\"\";");
+				}
+			}
+		</script>
+		<script>
+			function show() {
+				document.getElementById("div").style.display = "";
+			}
+			function hidden() {
+				document.getElementById("div").style.display = "none";
+			}
+		</script>
+		
+</html>

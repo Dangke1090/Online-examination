@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>在线考核系统</title>
+<link href="../css/index.css" rel='stylesheet' type='text/css' />
+<link href="../css/message.css" rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="../js/message.js"></script>
+<script type="text/javascript" src="../js/time.js"></script>
+<asp:HiddenField ID="HF1" runat="server" />
+<asp:HiddenField ID="HF2" runat="server" />
+<asp:HiddenField ID="HF3" runat="server" />
+
+</head>
+<body>
+	<div class="rs_header">
+		<span class="rs_header_active"> <a href="index.html"
+			>人员列表</a></span> <span class="rs_header_active">
+			<a href="message.html"  class="current">信息录入</a>
+		</span>
+	</div>
+	<div id="container" class="clearfix">
+		<div id="rightsidebar_box">
+			<div>
+				<div id="message">
+					<form id="form1" enctype="multipart/form-data" method="post">
+						<div id="fistmessage">
+							姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;<input type="text" id="name"
+								name="name">
+							<div id="imgPreview">
+								<div id="prompt3">
+									<span id="imgSpan"> 点击上传 <br /> <i
+										class="aui-iconfont aui-icon-plus"></i>
+
+									</span> <input type="file" name="image" id="file" class="filepath"
+										onchange="changepic(this)"
+										accept="image/jpg,image/jpeg,image/png,image/PNG">
+								</div>
+								<img src="#" id="img3" />
+							</div>
+							<br>性&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;<input type="radio"
+								name="sex" value="1">男<input type="radio" name="sex"
+								value="0">女 <br>出生年月&nbsp;<select id="selYear"
+								name="birthyear"></select>年 <select id="selMonth"
+								name="birthmonth"></select>月 <select id="selDay" name="birthday"></select>日
+							<br>籍&nbsp;&nbsp;&nbsp;&nbsp;贯&nbsp;<input type="text"
+								name="address"> <br>身份证号 <input type="text"
+								name="idcard"> 学&nbsp;&nbsp;&nbsp;&nbsp;历&nbsp;<input
+								type="text" name="education"> <br>入伍时间 <select
+								id="selYear1" name="joinyear"></select>年 <select id="selMonth1"
+								name="joinmonth"></select>月 <select id="selDay1" name="joinday"></select>日
+							<br>党团时间&nbsp;<select id="selYear2" name="partyear"></select>年
+							<select id="selMonth2" name="partmonth"></select>月 <select
+								id="selDay2" name="partday"></select>日 <br>专&nbsp;&nbsp;&nbsp;&nbsp;业
+							<select id="selprofessional" name="selprofessional"></select>
+							&nbsp;职&nbsp;&nbsp;&nbsp;&nbsp;务&nbsp;<select id="seljob"
+								name="seljob"></select> <br>证&nbsp;件&nbsp;号&nbsp;<input
+								type="text" name="idnum"> <br>部&nbsp;&nbsp;&nbsp;&nbsp;门
+							<select id="selbattalion" name="selbattalion"></select> <select
+								id="selcommander" name="selcommander"></select> <select
+								id="selplatoon" name="selplatoon"></select> <br>权&nbsp;&nbsp;&nbsp;&nbsp;限&nbsp;
+							<input type="checkbox" value="1" name="seltype">人员管理<input
+								type="checkbox" name="seltype" value="2">学习资料 <input
+								type="checkbox" value="3">试卷题库<input type="checkbox"
+								value="4" name="seltype">分析统计<input type="checkbox"
+								value="5" name="seltype">系统设置
+							状&nbsp;&nbsp;&nbsp;&nbsp;态 <select id="selstate" name="selstate">
+							</select> <br>用&nbsp;户&nbsp;名&nbsp;<input type="text" id="username"
+								name="username"> &nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;<input
+								type="password" id="password" name="password">
+						</div>
+						<div id=zerodiv>
+							<div id="firstdiv">
+								<p>教育情况</p>
+								<div id="seconddiv">
+									<table width="1050px" id="mytable" cellpadding="0px"
+										cellspacing="0px">
+										<tr height="30px">
+											<td><input size="120" name="studybackground"></td>
+											<td><a href="#" onclick="addAfter(this)">添加</a> <a
+												href="#" onclick="deleteCurrentRow(this)">删除</a> <a href="#"
+												onclick="moveToUp(this)">上移</a> <a href="#"
+												onclick="moveToDown(this)">下移</a></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div id="firstdiv">
+								<p>奖惩情况</p>
+								<div id="seconddiv">
+									<table width="1050px" id="mytable1" cellpadding="0px"
+										cellspacing="0px">
+
+										<tr height="30px">
+											<td><input size="120" name="rewardpunishment"></td>
+											<td><a href="#" onclick="addAfter1(this)">添加</a> <a
+												href="#" onclick="deleteCurrentRow1(this)">删除</a> <a
+												href="#" onclick="moveToUp1(this)">上移</a> <a href="#"
+												onclick="moveToDown1(this)">下移</a></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div id="firstdiv">
+								<p>任职情况</p>
+								<div id="seconddiv">
+									<table width="1050px" id="mytable2" cellpadding="0px"
+										cellspacing="0px">
+
+										<tr height="30px">
+											<td><input size="120" name="office"></td>
+											<td><a href="#" onclick="addAfter2(this)">添加</a> <a
+												href="#" onclick="deleteCurrentRow2(this)">删除</a> <a
+												href="#" onclick="moveToUp2(this)">上移</a> <a href="#"
+												onclick="moveToDown2(this)">下移</a></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div id="submitbt">
+							<input type="button" value="提交" id="bt-register"> <input
+								type="button" value="重置" onclick="location.reload()">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script>
+		$('#bt-register').click(function() {
+			var url = "../user/handlreg.do";
+			var data = new FormData($("#form1")[0]);
+			$.ajax({
+				"url" : url,
+				"data" : data,
+				"type" : "POST",
+				"dataType" : "json",
+				processData : false,
+				contentType : false,
+				"success" : function(json) {
+					if (json.state == 200) {
+						alert("提交成功！");
+					} else if (json.state == 402) {
+						alert("提交失败！" + json.message);
+					} else if (json.state == 403) {
+						alert("提交失败！" + json.message);
+					} else {
+						alert("莫名其妙！！！");
+					}
+				}
+			});
+		});
+	</script>
+
+	<script type="text/javascript">
+		//年月日
+		var selYear = window.document.getElementById("selYear");
+		var selMonth = window.document.getElementById("selMonth");
+		var selDay = window.document.getElementById("selDay");
+		// 新建一个DateSelector类的实例，将三个select对象传进去
+		new DateSelector(selYear, selMonth, selDay, 1970, 1, 1);
+		// 也可以试试下边的代码
+		// var dt = new Date(2004, 1, 29);
+		// new DateSelector(selYear, selMonth ,selDay, dt);
+
+		//获取选中年月日的值,这里有个问题,默认的年月日如果不选择,会发生报错,这时候应该设置文本域默认的value值和默认的年月日一样,就可以避免错误了
+		var selectY = document.getElementById('selYear');
+		var selectM = document.getElementById('selMonth');
+		var selectD = document.getElementById('selDay');
+		var h1 = document.getElementById('HF1');
+		var h2 = document.getElementById('HF2');
+		var h3 = document.getElementById('HF3');
+		selectY.onchange = function() {
+			h1.value = selectY.options[selectY.selectedIndex].text;
+		}
+		selectM.onchange = function() {
+			h2.value = selectM.options[selectM.selectedIndex].text;
+		}
+		selectD.onchange = function() {
+			h3.value = selectD.options[selectD.selectedIndex].text;
+		}
+	</script>
+	<script type="text/javascript">
+		//年月日
+		var selYear = window.document.getElementById("selYear1");
+		var selMonth = window.document.getElementById("selMonth1");
+		var selDay = window.document.getElementById("selDay1");
+		// 新建一个DateSelector类的实例，将三个select对象传进去
+		new DateSelector(selYear, selMonth, selDay, 1970, 1, 1);
+		// 也可以试试下边的代码
+		// var dt = new Date(2004, 1, 29);
+		// new DateSelector(selYear, selMonth ,selDay, dt);
+
+		//获取选中年月日的值,这里有个问题,默认的年月日如果不选择,会发生报错,这时候应该设置文本域默认的value值和默认的年月日一样,就可以避免错误了
+		var selectY = document.getElementById('selYear1');
+		var selectM = document.getElementById('selMonth1');
+		var selectD = document.getElementById('selDay1');
+		var h1 = document.getElementById('HF1');
+		var h2 = document.getElementById('HF2');
+		var h3 = document.getElementById('HF3');
+		selectY.onchange = function() {
+			h1.value = selectY.options[selectY.selectedIndex].text;
+		}
+		selectM.onchange = function() {
+			h2.value = selectM.options[selectM.selectedIndex].text;
+		}
+		selectD.onchange = function() {
+			h3.value = selectD.options[selectD.selectedIndex].text;
+		}
+	</script>
+	<script type="text/javascript">
+		var selYear = window.document.getElementById("selYear2");
+		var selMonth = window.document.getElementById("selMonth2");
+		var selDay = window.document.getElementById("selDay2");
+		// 新建一个DateSelector类的实例，将三个select对象传进去
+		new DateSelector(selYear, selMonth, selDay, 1970, 1, 1);
+
+		//获取选中年月日的值,这里有个问题,默认的年月日如果不选择,会发生报错,这时候应该设置文本域默认的value值和默认的年月日一样,就可以避免错误了
+		var selectY = document.getElementById('selYear2');
+		var selectM = document.getElementById('selMonth2');
+		var selectD = document.getElementById('selDay2');
+		var h1 = document.getElementById('HF1');
+		var h2 = document.getElementById('HF2');
+		var h3 = document.getElementById('HF3');
+		selectY.onchange = function() {
+			h1.value = selectY.options[selectY.selectedIndex].text;
+		}
+		selectM.onchange = function() {
+			h2.value = selectM.options[selectM.selectedIndex].text;
+		}
+		selectD.onchange = function() {
+			h3.value = selectD.options[selectD.selectedIndex].text;
+		}
+	</script>
+	<script type="text/javascript">
+		function showMenu() {
+			var url = "../job/all.do";
+			$.ajax({
+				"url" : url,
+				"type" : "post",
+				"dataType" : "json",
+				"success" : function(json) {
+					var list = json.data;
+					for (var i = 0; i < list.length; i++) {
+						var html = '<option value="#{value}">#{text}</option>';
+						html = html.replace("#{value}", list[i].jobname);
+						html = html.replace("#{text}", list[i].jobname);
+						$("#seljob").append(html);
+					}
+				}
+			});
+		}
+		showMenu();
+	</script>
+	<script type="text/javascript">
+		function showMenu1() {
+			var url = "../professional/all.do";
+			$.ajax({
+				"url" : url,
+				"type" : "POST",
+				"dataType" : "json",
+				"success" : function(json) {
+					var list = json.data;
+					for (var i = 0; i < list.length; i++) {
+						var html = '<option value="#{value}">#{text}</option>';
+						html = html.replace("#{value}",
+								list[i].professionalname);
+						html = html
+								.replace("#{text}", list[i].professionalname);
+						$("#selprofessional").append(html);
+					}
+				}
+			});
+		}
+		showMenu1();
+	</script>
+	<script type="text/javascript">
+		function showMenu3() {
+			var url = "../situation/all.do";
+			$.ajax({
+				"url" : url,
+				"type" : "POST",
+				"dataType" : "json",
+				"success" : function(json) {
+					var list = json.data;
+					for (var i = 0; i < list.length; i++) {
+						var html = '<option value="#{value}">#{text}</option>';
+						html = html.replace("#{value}", list[i].situationname);
+						html = html.replace("#{text}", list[i].situationname);
+						$("#selstate").append(html);
+					}
+				}
+			});
+		}
+		showMenu3();
+	</script>
+
+
+	<script type="text/javascript">
+		$("#selbattalion").change(function() {
+			FillTwo();
+			FillThree();
+		});
+	</script>
+	<script type="text/javascript">
+		$("#selcommander").change(function() {
+			FillThree();
+		});
+	</script>
+	<script type="text/javascript">
+		function FillOne() {
+			var url = "../battalion/all.do";
+			$.ajax({
+				"url" : url,
+				"type" : "POST",
+				"dataType" : "json",
+				"success" : function(json) {
+					var list = json.data;
+					for (var i = 0; i < list.length; i++) {
+						var html = '<option value="#{value}">#{text}</option>';
+						html = html.replace("#{value}", list[i].battalionname);
+						html = html.replace("#{text}", list[i].battalionname);
+						$("#selbattalion").append(html);
+					}
+				}
+			});
+		}
+		FillOne();
+		function FillTwo() {
+			var url = "../battalion/all1.do";
+			$.ajax({
+				"url" : url,
+				"type" : "POST",
+				"dataType" : "json",
+				"success" : function(json) {
+					var list = json.data;
+					for (var i = 0; i < list.length; i++) {
+						var html = '<option value="#{value}">#{text}</option>';
+						html = html.replace("#{value}", list[i].commandername);
+						html = html.replace("#{text}", list[i].commandername);
+						$("#selcommander").append(html);
+					}
+				}
+			});
+		}
+		FillTwo();
+		function FillThree() {
+			var url = "../battalion/all2.do";
+			$.ajax({
+				"url" : url,
+				"type" : "POST",
+				"dataType" : "json",
+				"success" : function(json) {
+					var list = json.data;
+					for (var i = 0; i < list.length; i++) {
+						var html = '<option value="#{value}">#{text}</option>';
+						html = html.replace("#{value}", list[i].platoonname);
+						html = html.replace("#{text}", list[i].platoonname);
+						$("#selplatoon").append(html);
+					}
+				}
+			});
+		}
+		FillThree();
+	</script>
+	<script type="text/javascript">
+function changepic() {
+	 $("#prompt3").css("display", "none");
+	 var reads = new FileReader();
+	 f = document.getElementById('file').files[0];
+	 reads.readAsDataURL(f);
+	 reads.onload = function(e) {
+	 document.getElementById('img3').src = this.result;
+	 $("#img3").css("display", "block");
+	 };
+	}
+</script>
+</body>
+</html>

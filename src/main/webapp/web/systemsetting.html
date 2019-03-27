@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>在线考核系统</title>
+<link href="../css/index.css" rel='stylesheet' type='text/css' />
+<link href="../css/systemsetting.css" rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" href="../css/bootstrapStyle/bootstrapStyle.css" type="text/css">
+<script type="text/javascript" src="../js/systemsetting.js"></script>
+</head>
+<body>
+	<div class="rs_header">
+		<span class="rs_header_active"> <a href="systemsetting.html"
+			onclick="change_bg(this)" class="current">参数配置</a></span>
+	</div>
+	<div id="container" class="clearfix">
+		<div id="rightsidebar_box">
+			<div id="systemmessage">
+		<div id="rightmessage">
+						<div id="firstdiv1">
+					<p style="font-weight: bold;">人员管理</p>
+					专业&nbsp;<select id="selprofessional"></select><input type="button" value="专业设置" onclick="show(id)" id="0">
+					 <br>职务&nbsp;<select  id="seljob"> </select><input type="button" value="职务设置" onclick="show(id)" id="1"> 
+					 <br>状态&nbsp;<select id="selstate"></select><input type="button" value="状态设置" onclick="show(id)" id="2">
+					 <br>部门&nbsp;<div id="sanji">
+				
+					 </div>
+				</div>
+				<div id="seconddiv2">
+					<p style="font-weight: bold;">学习资料</p>
+					类别&nbsp;<select id="seltype"></select><input type="button" value="类别设置" onclick="show(id)" id="4"> 
+				</div>
+				<!-- <div id="thirdiv3">
+					<p>题库试卷</p>
+					判断题&nbsp;<input type="checkbox">&nbsp;&nbsp;多选题&nbsp;<input
+						type="checkbox"> &nbsp;&nbsp;单选题&nbsp;<input
+						type="checkbox">&nbsp;&nbsp;实操题&nbsp;<input
+						type="checkbox">
+					<p>方式</p>
+					<input type="radio" value="1">手动 <input type="radio"
+						value="1">自动
+				</div>
+				<div id="fourthiv4">
+					<p style="font-weight: bold;">统计分析</p>
+					<p>统计类型</p>
+					在线学习&nbsp;<input type="checkbox">&nbsp;&nbsp;模拟考试&nbsp;<input
+						type="checkbox"> &nbsp;&nbsp;在线考试&nbsp;<input
+						type="checkbox">
+				</div>
+				<div id="fourthiv4">
+					<input type="submit" value="提交">
+
+				</div> -->
+		</div>
+			<div  id="systemmessage_Professional" style="display: none">
+			<form method="get">
+			<textarea rows="6" cols="70" style="font-size: 25px" id="professionalname" placeholder="请用，分割"></textarea>
+			<input type="button" value="提交" id="bt-professional">
+			</form>	
+				</div>
+					<div   id="systemmessage_Job" style="display: none">
+		<form method="get">
+		<textarea rows="6" cols="70" style="font-size: 25px" id="jobname" placeholder="请用，分割"></textarea>	
+					<input type="button" value="提交" id="bt-job">
+		</form>
+				</div >
+			<div  id="systemmessage_State" style="display: none">
+						<form method="get">
+		<textarea rows="6" cols="70" style="font-size: 25px" id="situationname" placeholder="请用，分割"></textarea>	
+					<input type="button" value="提交" id="bt-state">
+		</form>	
+			</div>
+		
+				<div   id="systemmessage_Department" style="display: none">
+<!-- 				<p>一级<input id="battalionname" size="50">
+					<p>二级<input size="50" id="commandername">	
+					<p>三级<input size="50" id="platoonname" >	 -->
+					<ul id="treeDemo" class="ztree"></ul>
+					<input type="button" value="提交" id="bt-department" >
+				</div>
+						<div   id="systemmessage_Type" style="display: none">
+			<textarea rows="6" cols="70" style="font-size: 25px" id="typename" placeholder="请用，分割"></textarea>	
+					<input type="button" value="提交" id="bt-type">
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+	$("#bt-job").click(function(){
+		var url="../job/jobname.do";
+		var jobname=$("#jobname").val();
+		var data="jobname="+jobname;
+			$.ajax({
+				"url":url,
+				"data":data,
+			"type":"get",
+			"datatype":"json",
+			"success":function(json){
+				if(json.state==200){
+					window.location.href="systemsetting.html";
+				}else{
+					alert("提交失败联系管理员")
+				}
+			}
+			});
+	});
+	</script>
+		<script type="text/javascript">
+	$("#bt-department").click(function(){
+		var url="../battalion/battalionname.do";
+		var battalionname=$("#battalionname").val();
+		var commandername=$("#commandername").val();
+		var platoonname=$("#platoonname").val();
+		var data="battalionname="+battalionname+"&commandername="+commandername+"&platoonname="+platoonname;
+			$.ajax({
+				"url":url,
+				"data":data,
+			"type":"get",
+			"datatype":"json",
+			"success":function(json){
+				if(json.state==200){
+					window.location.href="systemsetting.html";
+				}else{
+					alert("提交失败联系管理员")
+				}
+			}
+			});
+	});
+	</script>
+		<script type="text/javascript">
+	$("#bt-type").click(function(){
+		var url="../type/typename.do";
+		var typename=$("#typename").val();
+		var data="typename="+typename;
+			$.ajax({
+				"url":url,
+				"data":data,
+			"type":"get",
+			"datatype":"json",
+			"success":function(json){
+				if(json.state==200){
+					window.location.href="systemsetting.html";
+				}else{
+					alert("提交失败联系管理员")
+				}
+			}
+			});
+	});
+	</script>
+	<script type="text/javascript">
+	$("#bt-professional").click(function(){
+		var url="../professional/professionalname.do";
+		var professionalname=$("#professionalname").val();
+		var data="professionalname="+professionalname;
+			$.ajax({
+			"url":url,
+			"data":data,
+			"type":"get",
+			"datatype":"json",
+			"success":function(json){
+				if(json.state==200){
+					window.location.href="systemsetting.html";
+				}else{
+					alert("提交失败联系管理员")
+				}
+			}
+			});
+	});
+	</script>
+	<script type="text/javascript">
+		//定义一个tick函数，以获取系统的时间
+		function tick() {
+			var year, month, day, hours, minutes, seconds, ap;
+			var intYear, intMonth, intDay, intHours, intMinutes, intSeconds;
+			var today;
+			today = new Date();
+			intYear = today.getYear();
+			intMonth = today.getMonth() + 1;
+			intDay = today.getDate();
+			intHours = today.getHours();
+			intMinutes = today.getMinutes();
+			intSeconds = today.getSeconds();
+			//获取系统时间的小时数
+			if (intHours == 0) {
+				hours = intHours + ":";
+				ap = "凌晨";
+			} else if (intHours < 12) {
+				hours = intHours + ":";
+				ap = "早晨";
+			} else if (intHours == 12) {
+				hours = intHours + ":";
+				ap = "中午";
+			} else {
+				intHours = intHours - 12;
+				hours = intHours + ":";
+				ap = "下午";
+			}
+			//获取系统时间的分数
+			if (intMinutes < 10) {
+				minutes = "0" + intMinutes + ":";
+			} else
+				minutes = intMinutes + ":";
+			//获取系统时间的秒数
+			if (intSeconds < 10)
+				seconds = "0" + intSeconds + " ";
+			else
+				seconds = intSeconds + " ";
+			timeString = ap + hours + minutes + seconds;
+			Clock.innerHTML = timeString;
+			//每隔0.1秒钟执行一次tick函数
+			window.setTimeout("tick()", 100);
+		}
+		window.onload = tick;
+	</script>
+	<script type="text/javascript">
+		function changeColor(id, flag) {
+			if (flag == "over") {
+				document.getElementById(id).style.backgroundColor = "#0000FF";
+			} else if (flag == "out") {
+				document.getElementById(id).style.backgroundColor = "#6495ED";
+			}
+		}
+	</script>
+<script type="text/javascript">
+function showMenu() {
+	var url = "../job/all.do";
+	$.ajax({
+		"url": url,
+		"type": "GET",
+		"dataType": "json",
+		"success": function(json) {
+			var list = json.data;
+			for (var i = 0; i < list.length; i++) {
+				var html = '<option value="#{value}">#{text}</option>';
+				html = html.replace("#{value}", list[i].id);
+				html = html.replace("#{text}", list[i].jobname);
+				$("#seljob").append(html);
+			}
+		}
+	});
+}
+showMenu();
+
+</script>
+<script type="text/javascript">
+function showMenu1() {
+	var url = "../professional/all.do";
+	$.ajax({
+		"url": url,
+		"type": "GET",
+		"dataType": "json",
+		"success": function(json) {
+			var list = json.data;
+			for (var i = 0; i < list.length; i++) {
+				var html = '<option value="#{value}">#{text}</option>';
+				html = html.replace("#{value}", list[i].id);
+				html = html.replace("#{text}", list[i].professionalname);
+				$("#selprofessional").append(html);
+			}
+		}
+	});
+}
+showMenu1();
+
+</script>
+<script type="text/javascript">
+function showMenu2() {
+	var url = "../type/all.do";
+	$.ajax({
+		"url": url,
+		"type": "GET",
+		"dataType": "json",
+		"success": function(json) {
+			var list = json.data;
+			for (var i = 0; i < list.length; i++) {
+				var html = '<option value="#{value}">#{text}</option>';
+				html = html.replace("#{value}", list[i].id);
+				html = html.replace("#{text}", list[i].typename);
+				$("#seltype").append(html);
+			}
+		}
+	});
+}
+showMenu2();
+
+</script>
+<script type="text/javascript">
+function showMenu3() {
+	var url = "../situation/all.do";
+	$.ajax({
+		"url": url,
+		"type": "GET",
+		"dataType": "json",
+		"success": function(json) {
+			var list = json.data;
+			for (var i = 0; i < list.length; i++) {
+				var html = '<option value="#{value}">#{text}</option>';
+				html = html.replace("#{value}",list[i].situationname);
+				html = html.replace("#{text}", list[i].situationname);
+				$("#selstate").append(html);
+			}
+		}
+	});
+}
+showMenu3();
+
+</script>
+	<script type="text/javascript">
+	$("#bt-state").click(function(){
+		var url="../situation/handle_state.do";
+		var situationname=$("#situationname").val();
+		var data="situationname="+situationname;
+			$.ajax({
+			"url":url,
+			"data":data,
+			"type":"get",
+			"datatype":"json",
+			"success":function(json){
+				if(json.state==200){
+					window.location.href="systemsetting.html";
+				}else{
+					alert("提交失败联系管理员")
+				}
+			}
+			});
+	});
+	</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(e){
+    //三个下拉列表
+    //加载显示数据
+    $("#sanji").html(
+    		'<select id="selbattalion"></select>'+
+					 '<select id="selcommander"></select >'+
+					 '<select id="selplatoon"></select >'+
+					 '	 <input type="button" value="部门设置" onclick="show(id)" id="3"> '
+    		);
+
+    FillOne();
+    
+    FillTwo();
+
+    FillThree();
+})
+</script>
+<script type="text/javascript">
+$("#selbattalion").change(function(){
+	 FillTwo();
+	  FillThree();
+});
+</script>
+<script type="text/javascript">
+$("#selcommander").change(function(){
+	 FillThree();
+  });
+</script>
+<script type="text/javascript">
+function FillOne(){
+	var url = "../battalion/all.do";
+	$.ajax({
+		"url": url,
+		"type": "GET",
+		"dataType": "json",
+		"success": function(json) {
+			var list = json.data;
+			for (var i = 0; i < list.length; i++) {
+				var html = '<option value="#{value}">#{text}</option>';
+				html = html.replace("#{value}", list[i].id);
+				html = html.replace("#{text}", list[i].battalionname);
+				$("#selbattalion").append(html);
+			}
+		}
+	});
+}
+function FillTwo(){
+	var url = "../battalion/all1.do";
+	$.ajax({
+		"url": url,
+		"type": "GET",
+		"dataType": "json",
+		"success": function(json) {
+			var list = json.data;
+			for (var i = 0; i < list.length; i++) {
+				var html = '<option value="#{value}">#{text}</option>';
+				html = html.replace("#{value}", list[i].id);
+				html = html.replace("#{text}", list[i].commandername);
+				$("#selcommander").append(html);
+			}
+		}
+	});
+}
+function FillThree(){
+	var url = "../battalion/all2.do";
+	$.ajax({
+		"url": url,
+		"type": "GET",
+		"dataType": "json",
+		"success": function(json) {
+			var list = json.data;
+			for (var i = 0; i < list.length; i++) {
+				var html = '<option value="#{value}">#{text}</option>';
+				html = html.replace("#{value}", list[i].id);
+				html = html.replace("#{text}", list[i].platoonname);
+				$("#selplatoon").append(html);
+			}
+		}
+	});
+}
+</script>
+	
+  
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="../js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="../js/jquery.ztree.exedit.js"></script>
+    <SCRIPT type="text/javascript">
+
+        var setting = {
+            view: {
+                addHoverDom: addHoverDom,
+                removeHoverDom: removeHoverDom,
+                selectedMulti: false
+            },
+            check: {
+                enable: true
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            edit: {
+                enable: true
+            }
+        };
+
+        var zNodes =[
+            {id:1, pId:0, name:"一级", open:false},
+				{id:101, pId:1, name:"二级"}
+        ];
+
+        $(document).ready(function(){
+            $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        });
+
+        var newCount = 1;
+        function addHoverDom(treeId, treeNode) {
+            var sObj = $("#" + treeNode.tId + "_span");
+            if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
+            var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+                + "' title='add node' onfocus='this.blur();'></span>";
+            sObj.after(addStr);
+            var btn = $("#addBtn_"+treeNode.tId);
+            if (btn) btn.bind("click", function(){
+                var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                zTree.addNodes(treeNode, {id:(100 + newCount), pId:treeNode.id, name:"new node" + (newCount++)});
+                return false;
+            });
+        };
+        function removeHoverDom(treeId, treeNode) {
+            $("#addBtn_"+treeNode.tId).unbind().remove();
+        };
+        
+    </SCRIPT>
+</body>
+</html>

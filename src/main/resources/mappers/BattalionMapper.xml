@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.mapper.BattalionMapper">
+
+	<!-- 插入用户数据 -->
+	<!-- Integer insert(Job job) -->
+	<insert id="insert"
+		parameterType="cn.com.Entity.Battalion"
+		useGeneratedKeys="true"
+		keyProperty="battalionid">
+		INSERT INTO battalion (
+			battalionname
+		) VALUES (
+			#{battalionname}
+		)
+	</insert>
+	
+	<select id="getDataes" 
+	resultType="cn.com.Entity.Battalion">
+	SELECT * FROM battalion
+	</select>
+	<select id="getByname" resultType="cn.com.Entity.Battalion">
+	select * from battalion where battalionname=#{battalionname}
+	</select>
+		
+	<insert id="commanderinsert"
+		parameterType="cn.com.Entity.Commander"
+		useGeneratedKeys="true"
+		keyProperty="commanderid">
+		INSERT INTO commander (
+			commandername,battalionid
+		) VALUES (
+			#{commandername},#{battalionid}
+		)
+	</insert>
+	<select id="getCommanderByname" resultType="cn.com.Entity.Commander">
+	select * from commander where commandername=#{commandername}
+	</select>
+	<select id="getCommanderDataes" 
+	resultType="cn.com.Entity.Commander">
+	SELECT * FROM commander
+	</select>
+		<insert id="platooninsert"
+		parameterType="cn.com.Entity.Platoon"
+		useGeneratedKeys="true"
+		keyProperty="platoonid">
+		INSERT INTO platoon (
+			platoonname,commanderid
+		) VALUES (
+			#{platoonname},#{commanderid}
+		)
+	</insert>
+	<select id="getPlatoonByname" resultType="cn.com.Entity.Platoon">
+	select * from platoon where platoonname=#{platoonname}
+	</select>
+		<select id="getPlatoonDataes" 
+	resultType="cn.com.Entity.Platoon">
+	SELECT * FROM platoon
+	</select>
+</mapper>
+
+
+
+
+
+
+
+

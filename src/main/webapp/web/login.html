@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="">
+
+	<link href="../css/login.css" rel='stylesheet' type='text/css' />
+</head>
+
+<body>
+	<h1>欢迎登录</h1>
+	<div class="w3ls-login box">
+		<img src="../images/header/logo.png" alt="logo_img" />
+		<form id="login-form" method="post" name="form1">
+			<div class="agile-field-txt">
+				<input type="text" id="username" placeholder="用户名"  />
+			</div>
+			<div class="agile-field-txt">
+				<input type="password" id="password" placeholder="密码" id="myInput" />
+			</div>
+			<div class="w3ls-bot">
+				<input type="button" value="登录" id="bt-login">
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+	$('#bt-login').click(function(){
+		var url="../user/login.do";
+		var username=$("#username").val();
+		var password=$("#password").val();
+		var data = "username=" + username 
+		+ "&password=" + password;
+		$.ajax({
+			"url": url,
+			"data": data,
+			"type": "post",
+			"dataType": "json",
+			"success": function(json) {
+				if (json.state == 200) {
+					alert("登录成功！");
+					window.location.href="tes.html";
+				} else if (json.state == 402) {
+					alert("登录失败！" + json.message);
+				} else if (json.state == 403) {
+					alert("登录失败！" + json.message);
+				} else {
+					alert("莫名其妙！！！");
+				}
+			}
+		});
+	});
+	</script>
+</body>
+
+</html>

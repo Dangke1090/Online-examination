@@ -1,0 +1,120 @@
+@charset "UTF-8";
+#top_box{
+	padding: 50px;
+	width: 684px;
+	float: left;
+}
+#top_box input,select{
+	padding: 5px;
+}
+#tableanal1{
+	font-weight: bold;
+	font-size: 0;
+	text-align: center;
+}
+#tableanal2{
+	font-size: 0;
+	height: 250px;
+	width:701px;
+	overflow: auto;
+}
+#tableanal3{
+	font-weight: bold;
+	font-size: 0;
+	width:598px;
+	text-align: center;
+	margin-top: 20px;
+}
+#tableanal4{
+	font-size: 0;
+	height: 500px;
+	width:615px;
+	overflow: auto;
+}
+#tableanal5{
+	font-weight: bold;
+	font-size: 0;
+	text-align: center;
+	width: 796px;
+}
+#tableanal6{
+	font-size: 0;
+	height: 250px;
+	width:813px;
+	overflow: auto;
+}
+#tableanal7{
+	font-weight: bold;
+	font-size: 0;
+	width:710px;
+	text-align: center;
+	margin-top: 20px;
+}
+#tableanal8{
+	font-size: 0;
+	height:500px;
+	width:727px;
+	overflow: auto;
+}
+#anal1_check,#anal1_no{
+	display:inline-block;
+	width:50px;
+	border: 1px solid #ffffff; 
+	padding: 5px;
+	font-size:17px;
+	background:#f2f2f2 ;
+}
+#anal1_battalion,#anal1_link,#anal1_raft,#anal1_name,#anal1_time,#anal1_num,#anal1_true{
+	display:inline-block;
+	width:100px;
+	border: 1px solid #ffffff; 
+	padding: 5px;
+	font-size:17px;
+	background:#f2f2f2 ;
+}
+#anal1_analysis{
+	
+}
+#bom_box{
+	float: left;
+	width: 800px;
+	margin-left: 900px;
+	margin-top: 100px;
+	position: absolute;
+}
+#anal2_no{
+	display:inline-block;
+	width:50px;
+	border: 1px solid #ffffff; 
+	padding: 5px;
+	font-size:17px;
+	background:#f2f2f2 ;
+}
+#anal2_time,#anal2_min{
+	display:inline-block;
+	width:100px;
+	border: 1px solid #ffffff; 
+	padding: 5px;
+	font-size:17px;
+	background:#f2f2f2 ;
+}
+#anal2_file,#anal2_name{
+	display:inline-block;
+	width:300px;
+	border: 1px solid #ffffff; 
+	padding: 5px;
+	font-size:17px;
+	background:#f2f2f2 ;
+}
+#an_name{
+	margin-bottom: 50px;
+	font-weight: bold;
+}
+#anal2_type,#anal2_result{
+	display:inline-block;
+	width:100px;
+	border: 1px solid #ffffff; 
+	padding: 5px;
+	font-size:17px;
+	background:#f2f2f2 ;
+}

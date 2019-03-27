@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>在线考核系统</title>
+<link href="../css/index.css" rel='stylesheet' type='text/css' />
+
+</head>
+<body>
+	<div class="rs_header">
+		<span class="rs_header_active"> <a href="index.html"
+			 class="current">人员列表</a></span> <span
+			class="rs_header_active"> <a href="message.html"
+			>信息录入</a></span>
+	</div>
+	<div id="container" class="clearfix">
+		<div id="rightsidebar_box">
+			<div>
+				<div class="person_information_manage">
+					<div class="pim_title">
+						<span class="person_no">序号</span> <span class="person_name">姓名</span>
+						<span class="person_address">&nbsp;
+						<select style="width: 100px;font-size: 15px;font-weight: bold;">
+						<option>部门</option>
+						</select></span> <span
+							class="person_professional" >
+							<select id="selpro" style="width: 100px;font-size: 15px;font-weight: bold;" onchange="getValue()" >
+						<option >专业</option>
+						</select></span> <span class="person_job">
+						<select style="width: 100px;font-size: 15px;font-weight: bold;" id="seljob" style="width: 100px;font-size: 15px;font-weight: bold;" onchange="getValue1()"   >
+						<option>职务</option></select></span>
+						<span class="person_card">电子档案</span> <span class="person_handle">操作</span>
+					</div>
+					<div id="pims" style="width: 984px; height: 180px;">
+						<div class="pim1" >
+						<table id="pim1">
+
+						</table>
+						</div>
+
+					</div>
+				</div>
+				<div id="person_message" >
+				
+					<form id="form2">
+					
+						<input type="button" value="关闭" id="bt">
+					<table id="table1" border="1" cellpadding=12; cellspacing=0; >
+						<tr align=center>
+							<td colspan="5">电子档案</td>
+						</tr>
+						<tr align=center>
+							<td id="td1">姓名:</td>
+							<td>
+							<span id="name"></span>
+							</td>
+							<td id="td1">性别:</td>
+							<td ><span id="sex" 
+							></span></td>
+							<td rowspan="5" >
+							<img  id="image"src="">
+							</td>
+						</tr>
+						<tr align=center>
+							<td id="td1">出生年月:</td>
+							<td><span  id="birthday" ></span></td>
+							<td id="td1">籍贯:</td>
+							<td><span  id="address" ></span></td>
+						</tr>
+						<tr align=center>
+							<td>身份证号:</td>
+							<td width="153px"><span id="idcard" ></span></td>
+							<td id="td1">学历:</td>
+							<td id="td2"><span id="education"></span></td>
+						</tr>
+						<tr align=center>
+							<td id="td1">入伍时间:</td>
+							<td ><span id="join"></span></td>
+							<td id="td1">党团时间:</td>
+							<td ><span id="part" ></span> </td>
+						</tr>
+						<tr align=center>
+							<td colspan="5">教育背景</td>
+						</tr>
+						<tr align=center>
+							<td width="500px" colspan="5" style="height: 100px" >
+							<span id="studybackground" ></span>
+							</td>
+						</tr>
+						<tr align=center>
+							<td colspan="5">奖惩情况</td>
+						</tr>
+						<tr>
+							<td width="500px" colspan="5" style="height: 100px">
+							<span  id="rewardpunishment"  ></span>
+							</td>
+						
+						</tr>
+						<tr align=center>
+							<td colspan="5">任职情况</td>
+						</tr>
+						<tr >
+							<td colspan="5" style="height: 100px" >
+								<span  id="office" ></span>
+							</td>
+						</tr>
+						<tr align=center>
+							<td colspan="5">考模情况</td>
+						</tr>
+						<tr>
+							<td colspan="5" style="height: 100px" ></td>
+						</tr>
+					</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	function looking(id) {
+		var url = "../user/looking.do";
+		var data = "id=" + id;
+		$.ajax({
+			"url": url,
+			"data": data,
+			"type": "POST",
+			"dataType": "json",
+			"success": function(json) {
+				if (json.state == 200) {
+					var user = json.data;
+					  window.location.href = encodeURI("message1.html?id="+user.id);
+				}
+ }
+		});
+	}
+	</script>
+	
+	<script type="text/javascript">
+		window.onload = function() {
+			var obt = document.getElementById("bt");
+			var odiv = document.getElementById("person_message");
+			obt.onclick = function() {
+				if (odiv.style.display == "block") {
+					odiv.style.display = "none";
+				}
+			}
+		}
+	</script>
+	<script type="text/javascript">
+	function show(){
+		document.getElementById("person_message").style.display="block";
+	}
+	</script>
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+	function look(id) {
+		var url = "../user/look.do";
+		var data = "id=" + id;
+		$.ajax({
+			"url": url,
+			"data": data,
+			"type": "POST",
+			"dataType": "json",
+			"success": function(json) {
+				if (json.state == 200) {
+					var user = json.data;
+					$("#name").html(user.name);
+					$("#sex").html(user.sex);
+					$("#image").attr("src", "../" + user.image);	
+					$("#idcard").html(user.idcard);
+					$("#address").html(user.address);
+					$("#birthday").html(user.birthyear+"-"+user.birthmonth+"-"+user.birthday);
+					$("#education").html(user.education);
+					$("#join").html(user.birthyear+"-"+user.birthmonth+"-"+user.birthday);
+					$("#part").html(user.birthyear+"-"+user.birthmonth+"-"+user.birthday);
+				/* 	var all= new Array();
+					all=user.studybackground.split(","); */
+					$("#studybackground").html(user.studybackground+"<br/>");
+					$("#rewardpunishment").html(user.rewardpunishment);
+					$("#office").html(user.office);
+					}
+				} 
+		});
+ }
+	</script>
+	<script type="text/javascript">
+	function getValue() {
+	var url = "../user/professall.do";
+	 var selprofessional = $("#selpro option:selected").val();
+	 var data= "selprofessional="+selprofessional;
+	$.ajax({
+		"url": url,
+		"type": "POST",
+		"dataType": "json",
+		 "data":data,
+		"success": function(json) {
+			$("#pim1").empty();
+			var list = json.data;
+			for (var i = 0; i < list.length; i++) {
+				var html = '<span class="person_no">#{no}</span>'
+					+ '<span class="person_name">#{name}</span>'
+					+ '<span class="person_address">#{address}</span>'
+					+ '<span class="person_professional">#{professional}</span>'
+					+ '<span class="person_job">#{job}</span>'
+					+ '<span class="person_card"><a href="javascript:look(#{id})" onclick="show()">#{no}</a></span>'
+					+ '<span class="person_handle">'
+					+'<span class="aco_change"><a href="javascript:looking(#{id})">修改</a></span>|<span class="aco_delete"><a href="javascript:del(#{id});" >删除</a></span>|<span ><a href="javascript:moveUp(#{id});">上移</a></span></span>';
+				html = html.replace("#{no}",i+1);
+				html = html.replace("#{name}", list[i].name);
+				html = html.replace("#{address}", list[i].selbattalion+list[i].selcommander+list[i].selplatoon);
+				html = html.replace("#{professional}", list[i].selprofessional);
+				html = html.replace("#{job}", list[i].seljob);
+				html = html.replace("#{no}", "1001"+list[i].id);
+				html = html.replace(/#{id}/g, list[i].id);
+				$("#pim1").append(html);
+			}
+		}
+	});
+}
+	</script>
+	<script type="text/javascript">
+	function getValue1() {
+	var url = "../user/joball.do";
+	 var seljob = $("#seljob option:selected").val();
+	 var data= "seljob="+seljob;
+	$.ajax({
+		"url": url,
+		"type": "POST",
+		"dataType": "json",
+		 "data":data,
+		"success": function(json) {
+			$("#pim1").empty();
+			var list = json.data;
+			for (var i = 0; i < list.length; i++) {
+				var html = '<span class="person_no">#{no}</span>'
+					+ '<span class="person_name">#{name}</span>'
+					+ '<span class="person_address">#{address}</span>'
+					+ '<span class="person_professional">#{professional}</span>'
+					+ '<span class="person_job">#{job}</span>'
+					+ '<span class="person_card"><a href="javascript:look(#{id})" onclick="show()">#{no}</a></span>'
+					+ '<span class="person_handle">'
+					+'<span class="aco_change"><a href="javascript:looking(#{id})">修改</a></span>|<span class="aco_delete"><a href="javascript:del(#{id});" >删除</a></span>|<span ><a href="javascript:moveUp(#{id});">上移</a></span></span>';
+				html = html.replace("#{no}",i+1);
+				html = html.replace("#{name}", list[i].name);
+				html = html.replace("#{address}", list[i].selbattalion+list[i].selcommander+list[i].selplatoon);
+				html = html.replace("#{professional}", list[i].selprofessional);
+				html = html.replace("#{job}", list[i].seljob);
+				html = html.replace("#{no}", "1001"+list[i].id);
+				html = html.replace(/#{id}/g, list[i].id);
+				$("#pim1").append(html);
+			}
+		}
+	});
+}
+	</script>
+	<script type="text/javascript">
+	function showMenu() {
+		var url = "../user/all.do";
+		$.ajax({
+			"url": url,
+			"type": "post",
+			"dataType": "json",
+			"success": function(json) {
+				$("#pim1").empty();
+				var list = json.data;
+				for (var i = 0; i < list.length; i++) {
+					var html = '<span class="person_no">#{no}</span>'
+						+ '<span class="person_name">#{name}</span>'
+						+ '<span class="person_address">#{address}</span>'
+						+ '<span class="person_professional">#{professional}</span>'
+						+ '<span class="person_job">#{job}</span>'
+						+ '<span class="person_card"><a href="javascript:look(#{id})" onclick="show()">#{no}</a></span>'
+						+ '<span class="person_handle">'
+						+'<span class="aco_change"><a href="javascript:looking(#{id})" >修改</a></span>|<span class="aco_delete"><a href="javascript:del(this,#{id});" >删除</a></span>|<span ><a href="javascript:moveUp(#{id});">上移</a></span></span>';
+					html = html.replace("#{no}",i+1);
+					html = html.replace("#{name}", list[i].name);
+					html = html.replace("#{address}", list[i].selbattalion+list[i].selcommander+list[i].selplatoon);
+					html = html.replace("#{professional}", list[i].selprofessional);
+					html = html.replace("#{job}", list[i].seljob);
+					html = html.replace("#{no}", "1001"+list[i].id);
+					html = html.replace(/#{id}/g, list[i].id);
+					$("#pim1").append(html);
+				}
+			}
+		});
+	}
+	showMenu();
+
+	
+	</script>
+	<script type="text/javascript">
+	function del(obj,id){//id为取到的行id
+		var r=confirm("是否确认删除？");    
+		if(r==true){
+			var url = "../user/delete.do";
+			var data = "id=" + id;
+			$.ajax({
+				"url": url,
+				"data": data,
+				"type": "POST",
+				"dataType": "json",
+				"success": function(json) {
+					if (json.state == 200) {
+						showMenu();
+					} else {
+						alert(json.message);
+					}
+				}
+			});
+			return true;
+		}else{
+			//反之取消删除
+			return false;
+		}
+	}
+</script>
+
+<script type="text/javascript">
+function moveUp(id) {
+	var url = "../user/moveUp.do";
+	var data = "id=" + id;
+	$.ajax({
+		"url": url,
+		"data": data,
+		"type": "POST",
+		"dataType": "json",
+		"success": function(json) {
+			if (json.state == 200) {
+				showMenu();
+			} else{
+				alert("已经是第一个了")
+			}
+		}
+	});
+}
+</script>
+<script type="text/javascript">
+function showMenu1() {
+	var url = "../professional/all.do";
+	$.ajax({
+		"url": url,
+		"type": "POST",
+		"dataType": "json",
+		"success": function(json) {
+			var list = json.data;
+			for (var i = 0; i < list.length; i++) {
+				var html = '<option value="#{value}">#{text}</option>';
+				html = html.replace("#{value}",list[i].professionalname);
+				html = html.replace("#{text}", list[i].professionalname);
+				$("#selpro").append(html);
+			}
+		}
+	});
+}
+showMenu1();
+
+</script>
+	<script type="text/javascript">
+function showMenu2() {
+	var url = "../job/all.do";
+	$.ajax({
+		"url": url,
+		"type": "POST",
+		"dataType": "json",
+		"success": function(json) {
+			var list = json.data;
+			for (var i = 0; i < list.length; i++) {
+				var html = '<option value="#{value}">#{text}</option>';
+				html = html.replace("#{value}", list[i].jobname);
+				html = html.replace("#{text}", list[i].jobname);
+				$("#seljob").append(html);
+			}
+		}
+	});
+}
+showMenu2();
+</script>
+<script type="text/javascript">
+function edit(element){
+
+	var oldhtml = element.innerHTML;//获得元素之前的内容
+	var newobj = document.createElement('input');//创建一个input元素
+	newobj.type ='text';//为newobj元素添加类型
+	newobj.name ='name';
+	newobj.value=oldhtml;
+	element.innerHTML='';
+	element.appendChild(newobj);//添加子元素
+	newobj.focus();//获得焦点
+	
+	//设置newobj失去焦点的事件
+	newobj.onblur = function(){
+	//下面应该判断是否做了修改并使用ajax代码请求服务端将id与修改后的数据提交
+	
+	//当触发时判断newobj的值是否为空，为空则不修改，并返回oldhtml
+	element.innerHTML = this.value ? this.value : oldhtml;
+	}
+}
+</script>
+
+</body>
+</html>
